@@ -122,6 +122,7 @@ void updateControl(){
   }
   if ((mozziMicros() - lastUpDebounceTime) > debounceDelay){
     if (upreading != upButtonState){
+      lastUpDebounceTime = mozziMicros();
       upButtonState = upreading;
       if (upButtonState == HIGH){
         sequence += 1;
@@ -137,6 +138,7 @@ void updateControl(){
   }
   if ((mozziMicros() - lastDownDebounceTime) > debounceDelay){
     if (downreading != downButtonState){
+      lastDownDebounceTime = mozziMicros();
       downButtonState = downreading;
       if (downButtonState == HIGH){
         sequence -= 1;
